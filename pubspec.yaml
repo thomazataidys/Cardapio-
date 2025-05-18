@@ -90,6 +90,7 @@ flutter:
     - assets/images/cuzcuzdelegumes.jpg
     - assets/images/escondidinhovegetariano.jpg
     - assets/images/moquecadebanana.jpg
+    - assets/images/perfil.jpg
 
   fonts:
     - family: COOPBL
