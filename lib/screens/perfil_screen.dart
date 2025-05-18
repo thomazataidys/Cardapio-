@@ -35,7 +35,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   const SizedBox(width: 14),
                   const Text(
-                    'Thomáz Jefferson',
+                    'Thomaz Jefferson',
                     style: TextStyle(
                       fontSize: 18,
                       fontFamily: 'Montserrat',
