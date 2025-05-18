@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
-    home: FrangoCozidoScreen(),
-    debugShowCheckedModeBanner: false,
-  ));
+  runApp(
+    MaterialApp(home: FrangoCozidoScreen(), debugShowCheckedModeBanner: false),
+  );
 }
 
 class FrangoCozidoScreen extends StatefulWidget {
+  const FrangoCozidoScreen({super.key});
+
   @override
   _FrangoCozidoScreenState createState() => _FrangoCozidoScreenState();
 }
@@ -52,7 +53,10 @@ class _FrangoCozidoScreenState extends State<FrangoCozidoScreen> {
                   right: 0,
                   child: Center(
                     child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 24,
+                        vertical: 8,
+                      ),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(30),
@@ -73,7 +77,7 @@ class _FrangoCozidoScreenState extends State<FrangoCozidoScreen> {
                       ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
             Expanded(
@@ -101,10 +105,7 @@ class _FrangoCozidoScreenState extends State<FrangoCozidoScreen> {
                       ),
                     ),
                     SizedBox(height: 20),
-                    Text(
-                      'Alguma observação?',
-                      style: TextStyle(fontSize: 16),
-                    ),
+                    Text('Alguma observação?', style: TextStyle(fontSize: 16)),
                     SizedBox(height: 8),
                     TextField(
                       decoration: InputDecoration(
@@ -134,8 +135,10 @@ class _FrangoCozidoScreenState extends State<FrangoCozidoScreen> {
                                   });
                                 },
                               ),
-                              Text(quantity.toString(),
-                                  style: TextStyle(fontSize: 18)),
+                              Text(
+                                quantity.toString(),
+                                style: TextStyle(fontSize: 18),
+                              ),
                               IconButton(
                                 icon: Icon(Icons.add),
                                 onPressed: () {
@@ -163,13 +166,13 @@ class _FrangoCozidoScreenState extends State<FrangoCozidoScreen> {
                               style: TextStyle(fontSize: 16),
                             ),
                           ),
-                        )
+                        ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

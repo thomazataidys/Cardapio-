@@ -1,5 +1,8 @@
 import 'package:appmaisgostoso/data/quantidade_itens_home.dart';
 import 'package:appmaisgostoso/screens/categoria_screen.dart';
+import 'package:appmaisgostoso/screens/navigationbar_screens/busca_screen.dart';
+import 'package:appmaisgostoso/screens/navigationbar_screens/pedidos_screen.dart';
+import 'package:appmaisgostoso/screens/navigationbar_screens/perfil_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -11,31 +14,37 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
+  late final List<Widget> _screens;
+
+  @override
+  void initState() {
+    super.initState();
+    _screens = [
+      _buildHomeContent(),
+      const BuscaScreen(),
+      const PedidosScreen(),
+      const PerfilScreen(),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFEDDD1D),
-      body: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
-          ),
-        ),
-        child: Stack(
-          children: [
-            Column(
-              children: [
-                _buildHeader(),
-                const SizedBox(height: 2),
-                Expanded(child: _buildCategoryList()),
-              ],
-            ),
-          ],
-        ),
-      ),
+      body: _screens[_selectedIndex],
       bottomNavigationBar: _buildBottomBar(),
+    );
+  }
+
+  Widget _buildHomeContent() {
+    return Container(
+      color: const Color(0xFFEDDD1D),
+      child: Column(
+        children: [
+          _buildHeader(),
+          const SizedBox(height: 2),
+          Expanded(child: _buildCategoryList()),
+        ],
+      ),
     );
   }
 
@@ -67,13 +76,13 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 35,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Color(0xFFF4EEE1),
+                color: const Color(0xFFF4EEE1),
                 boxShadow: [
                   BoxShadow(
-                    color: Color(0xFF757575).withOpacity(0.5),
+                    color: const Color(0xFF757575).withOpacity(0.5),
                     spreadRadius: 1,
                     blurRadius: 3,
-                    offset: Offset(3, 3),
+                    offset: const Offset(3, 3),
                   ),
                 ],
               ),
@@ -103,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
 
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Color(0xFFF4EEE1),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(30),
@@ -127,12 +136,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: Color(0xFFFFFFFF),
+                    color: const Color(0xFFFFFFFF),
                     borderRadius: BorderRadius.circular(23),
                     boxShadow: [
                       BoxShadow(
                         spreadRadius: 1,
-                        color: Color(0xFF757575).withOpacity(0.3),
+                        color: const Color(0xFF757575).withOpacity(0.3),
                         blurRadius: 4,
                         offset: const Offset(3, 4),
                       ),
@@ -152,9 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 fontWeight: FontWeight.w400,
                                 fontFamily: 'COOPBL',
                                 letterSpacing: 3,
-                                color: Color(
-                                  0xFF252810,
-                                ), // Fonte principal da marca
+                                color: Color(0xFF252810),
                               ),
                             ),
                             Text(
@@ -163,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 fontFamily: 'Montserrat',
                                 fontSize: 13,
                                 color: Color(0xFF252810),
-                              ), // Fonte secundária
+                              ),
                             ),
                           ],
                         ),
@@ -185,15 +192,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                        color: Color(0xFF757575).withOpacity(0.5),
+                        color: const Color(0xFF757575).withOpacity(0.5),
                         spreadRadius: 1,
                         blurRadius: 3,
-                        offset: Offset(0, 2),
+                        offset: const Offset(0, 2),
                       ),
                     ],
                   ),
                   child: CircleAvatar(
-                    backgroundColor: Color(0xFF252810),
+                    backgroundColor: const Color(0xFF252810),
                     child: IconButton(
                       icon: const Icon(
                         Icons.arrow_forward,
@@ -238,9 +245,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
       ],
-      selectedItemColor: Color(0xFF252810),
-      unselectedItemColor: Color(0xFF757575),
-      backgroundColor: Color(0xFFFFFFFF),
+      selectedItemColor: const Color(0xFF252810),
+      unselectedItemColor: const Color(0xFF757575),
+      backgroundColor: const Color(0xFFFFFFFF),
       type: BottomNavigationBarType.fixed,
     );
   }
