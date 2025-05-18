@@ -1,5 +1,4 @@
 import 'package:appmaisgostoso/screens/home_screen.dart';
-import 'package:appmaisgostoso/screens/perfil_screen.dart';
 import 'package:appmaisgostoso/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +19,6 @@ class MaisGostoso extends StatelessWidget {
       routes: {
         '/': (context) => const SplashScreen(),
         '/home': (context) => const HomeScreen(),
-        '/profile': (context) => const ProfileScreen(),
       },
     );
   }
