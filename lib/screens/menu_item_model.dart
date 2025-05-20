@@ -4,6 +4,8 @@ class MenuItem {
   final String weight;
   final String image;
   final double price;
+  final int quantity;
+  final String observation;
 
   MenuItem({
     required this.name,
@@ -11,15 +13,9 @@ class MenuItem {
     required this.weight,
     required this.image,
     required this.price,
+    this.quantity = 1,
+    this.observation = '',
   });
 
-  factory MenuItem.fromMap(Map<String, dynamic> map) {
-    return MenuItem(
-      name: map['name'] ?? '',
-      desc: map['desc'] ?? '',
-      weight: map['weight'] ?? '',
-      image: map['image'] ?? '',
-      price: map['price'] ?? 0.0,
-    );
-  }
+  double get totalPrice => price * quantity;
 }

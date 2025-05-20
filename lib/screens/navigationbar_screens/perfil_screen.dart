@@ -36,8 +36,8 @@ class PerfilScreen extends StatelessWidget {
                     'Thomáz Jefferson',
                     style: TextStyle(
                       fontSize: 20,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Nunito',
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Nunito-Medium',
                     ),
                   ),
                 ],
@@ -47,33 +47,28 @@ class PerfilScreen extends StatelessWidget {
               child: Container(
                 color: const Color(0xFFF4EEE1), // Cor do fundo interno
                 child: ListView(
-                  padding: const EdgeInsets.symmetric(vertical: 18),
+                  padding: const EdgeInsets.symmetric(vertical: 20),
                   children: const [
                     ListTile(
                       leading: Icon(Icons.favorite_border),
                       title: Text('Favoritos'),
                     ),
-                    Divider(height: 20),
+                    Divider(height: 22),
                     ListTile(
                       leading: Icon(Icons.notifications_none),
                       title: Text('Notificações'),
                     ),
-                    Divider(height: 20),
-                    ListTile(
-                      leading: Icon(Icons.location_on_outlined),
-                      title: Text('Endereços'),
-                    ),
-                    Divider(height: 20),
+                    Divider(height: 22),
                     ListTile(
                       leading: Icon(Icons.description_outlined),
                       title: Text('Dados da conta'),
                     ),
-                    Divider(height: 20),
+                    Divider(height: 22),
                     ListTile(
                       leading: Icon(Icons.credit_card_outlined),
                       title: Text('Pagamentos'),
                     ),
-                    Divider(height: 20),
+                    Divider(height: 22),
                   ],
                 ),
               ),

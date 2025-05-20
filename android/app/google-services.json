@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "499608906151",
+    "project_id": "appmaisgostoso",
+    "storage_bucket": "appmaisgostoso.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499608906151:android:79bbb84bbfa489ff61ee82",
+        "android_client_info": {
+          "package_name": "com.example.appmaisgostoso"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjW0RhKHWUWMM0a3s7zCSiZoh7CfHIbfo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
