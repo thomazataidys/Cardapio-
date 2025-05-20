@@ -1,12 +1,13 @@
 import 'package:appmaisgostoso/data/quantidade_itens_home.dart';
+import 'package:appmaisgostoso/screens/cart_model.dart';
 import 'package:appmaisgostoso/screens/categoria_screen.dart';
 import 'package:appmaisgostoso/screens/navigationbar_screens/busca_screen.dart';
-import 'package:appmaisgostoso/screens/navigationbar_screens/pedidos_screen.dart';
 import 'package:appmaisgostoso/screens/navigationbar_screens/perfil_screen.dart';
+import 'package:appmaisgostoso/screens/pedidos_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key, required int initialIndex});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -22,13 +23,14 @@ class _HomeScreenState extends State<HomeScreen> {
     _screens = [
       _buildHomeContent(),
       const BuscaScreen(),
-      const PedidoScreen(cartItems: []),
+      const PedidoScreen(), 
       const PerfilScreen(),
     ];
   }
 
   @override
   Widget build(BuildContext context) {
+    final cartItems = CartModel().items;
     return Scaffold(
       body: _screens[_selectedIndex],
       bottomNavigationBar: _buildBottomBar(),

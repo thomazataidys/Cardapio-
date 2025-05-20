@@ -1,3 +1,5 @@
+import 'package:appmaisgostoso/screens/cart_model.dart';
+import 'package:appmaisgostoso/screens/menu_item_model.dart';
 import 'package:flutter/material.dart';
 
 class ItemDescriptionScreen extends StatefulWidget {
@@ -11,6 +13,25 @@ class ItemDescriptionScreen extends StatefulWidget {
 
 class _ItemDescriptionScreenState extends State<ItemDescriptionScreen> {
   int quantity = 1;
+  String observation = '';
+
+  void _addToCart(BuildContext context) {
+    final menuItem = MenuItem(
+      name: widget.item['name'] ?? '',
+      desc: widget.item['desc'] ?? '',
+      weight: widget.item['weight'] ?? '',
+      image: widget.item['image'] ?? '',
+      price: double.parse((widget.item['price'] ?? '0').replaceAll(',', '.')),
+      quantity: quantity,
+      observation: observation,
+    );
+
+    // Adiciona ao carrinho global
+    CartModel().addItem(menuItem);
+
+    // Volta para tela anterior
+    Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -116,9 +137,12 @@ class _ItemDescriptionScreenState extends State<ItemDescriptionScreen> {
                             ],
                           ),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed:
+                                () => _addToCart(
+                                  context,
+                                ), // Alterado para chamar o método diretamente
                             child: Text(
-                              ' Adicionar R\$ ${double.parse(price.replaceAll(',', '.')).toStringAsFixed(2)}',
+                              'Adicionar R\$ ${(double.parse(price.toString().replaceAll(',', '.')) * quantity).toStringAsFixed(2)}',
                             ),
                           ),
                         ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -36,7 +37,10 @@ class _SplashScreenState extends State<SplashScreen>
     _controller.forward();
 
     //vá para a próxima tela depois de um tempo de 3 segundos
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () async {
+      final prefs = await SharedPreferences.getInstance();
+      final logado = prefs.getBool('logado') ?? false;
+
       if (mounted) {
         Navigator.pushReplacementNamed(context, '/home');
       }
