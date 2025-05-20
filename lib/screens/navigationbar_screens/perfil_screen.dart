@@ -11,55 +11,69 @@ class PerfilScreen extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              color: Colors.yellow[700],
-              padding: const EdgeInsets.all(16),
+              color: Color(0xFFEDDD1D),
+              padding: const EdgeInsets.all(30),
               child: Row(
                 children: [
-                  const CircleAvatar(
-                    radius: 30,
-                    backgroundImage: NetworkImage(
-                      'https://i.pravatar.cc/150?img=3', // Avatar fictício
+                  Container(
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0xFF000000).withOpacity(0.1),
+                          spreadRadius: 1,
+                          offset: Offset(1, 2),
+                        ),
+                      ],
+                      borderRadius: BorderRadius.all(Radius.circular(45)),
+                    ),
+                    child: CircleAvatar(
+                      radius: 30,
+                      backgroundImage: AssetImage('assets/images/perfil.jpg'),
                     ),
                   ),
-                  const SizedBox(width: 16),
+                  const SizedBox(width: 33),
                   const Text(
                     'Thomáz Jefferson',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Nunito',
+                    ),
                   ),
                 ],
               ),
             ),
             Expanded(
               child: Container(
-                color: const Color(0xFFF6F0E6), // Cor do fundo interno
+                color: const Color(0xFFF4EEE1), // Cor do fundo interno
                 child: ListView(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  padding: const EdgeInsets.symmetric(vertical: 18),
                   children: const [
                     ListTile(
                       leading: Icon(Icons.favorite_border),
                       title: Text('Favoritos'),
                     ),
-                    Divider(),
+                    Divider(height: 20),
                     ListTile(
                       leading: Icon(Icons.notifications_none),
                       title: Text('Notificações'),
                     ),
-                    Divider(),
+                    Divider(height: 20),
                     ListTile(
                       leading: Icon(Icons.location_on_outlined),
                       title: Text('Endereços'),
                     ),
-                    Divider(),
+                    Divider(height: 20),
                     ListTile(
                       leading: Icon(Icons.description_outlined),
                       title: Text('Dados da conta'),
                     ),
-                    Divider(),
+                    Divider(height: 20),
                     ListTile(
                       leading: Icon(Icons.credit_card_outlined),
                       title: Text('Pagamentos'),
                     ),
-                    Divider(),
+                    Divider(height: 20),
                   ],
                 ),
               ),

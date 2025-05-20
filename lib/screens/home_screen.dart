@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _screens = [
       _buildHomeContent(),
       const BuscaScreen(),
-      const PedidosScreen(),
+      const PedidoScreen(cartItems: []),
       const PerfilScreen(),
     ];
   }

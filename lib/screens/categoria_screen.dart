@@ -1,4 +1,5 @@
 import 'package:appmaisgostoso/data/menu_items.dart';
+import 'package:appmaisgostoso/screens/item_description_screen.dart';
 import 'package:flutter/material.dart';
 
 class CategoryItemsScreen extends StatelessWidget {
@@ -218,7 +219,17 @@ class CategoryItemsScreen extends StatelessWidget {
                         backgroundColor: Colors.black,
                         child: IconButton(
                           icon: const Icon(Icons.add, color: Colors.white),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder:
+                                    (context) => ItemDescriptionScreen(
+                                      item: item as Map<String, dynamic>,
+                                    ),
+                              ),
+                            );
+                          },
                         ),
                       ),
                     ],
